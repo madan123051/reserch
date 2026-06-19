@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Agent</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">PA</span>
+          <div>
+            <strong>Personal Agent</strong>
+            <small id="modelStatus">Checking...</small>
+          </div>
+        </div>
+        <nav class="tabs" aria-label="Agent sections">
+          <button class="tab active" data-view="chat">Chat</button>
+          <button class="tab" data-view="research">Research</button>
+          <button class="tab" data-view="code">Code</button>
+          <button class="tab" data-view="deploy">Deploy</button>
+          <button class="tab" data-view="tasks">Tasks</button>
+          <button class="tab" data-view="notes">Notes</button>
+          <button class="tab" data-view="tools">Tools</button>
+        </nav>
+        <div class="status-card">
+          <span>Workspace</span>
+          <strong id="workspaceText">.</strong>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <h1 id="viewTitle">Chat</h1>
+            <p id="viewSub">Ask for research, code, deployment, or learning help.</p>
+          </div>
+          <button id="refreshBtn" class="icon-button" title="Refresh status" aria-label="Refresh status">Refresh</button>
+        </header>
+
+        <section class="view active" id="chat">
+          <div class="conversation" id="chatLog"></div>
+          <form class="composer" id="chatForm">
+            <textarea id="chatInput" rows="3" placeholder="Ask your agent..."></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+        <section class="view" id="research">
+          <div class="panel">
+            <label for="researchTopic">Topic</label>
+            <input id="researchTopic" placeholder="e.g. best deployment strategy for a SaaS app">
+            <button id="researchBtn">Research</button>
+          </div>
+          <pre class="output" id="researchOut"></pre>
+        </section>
+
+        <section class="view" id="code">
+          <div class="panel split">
+            <div>
+              <label for="reviewPath">Project path</label>
+              <input id="reviewPath" value=".">
+            </div>
+            <button id="reviewBtn">Review</button>
+          </div>
+          <pre class="output" id="reviewOut"></pre>
+        </section>
+
+        <section class="view" id="deploy">
+          <div class="panel split">
+            <div>
+              <label for="deployPath">Project path</label>
+              <input id="deployPath" value=".">
+            </div>
+            <button id="deployBtn">Check</button>
+          </div>
+          <pre class="output" id="deployOut"></pre>
+        </section>
+
+        <section class="view" id="tasks">
+          <form class="panel task-form" id="taskForm">
+            <input id="taskText" placeholder="Add task">
+            <input id="taskProject" placeholder="Project">
+            <button type="submit">Add</button>
+          </form>
+          <div class="task-list" id="taskList"></div>
+        </section>
+
+        <section class="view" id="notes">
+          <div class="panel notes-grid">
+            <textarea id="noteInput" rows="5" placeholder="Save a useful note..."></textarea>
+            <div class="note-actions">
+              <button id="noteAddBtn">Save</button>
+              <input id="noteQuery" placeholder="Search notes">
+              <button id="noteSearchBtn">Search</button>
+            </div>
+          </div>
+          <pre class="output" id="notesOut"></pre>
+        </section>
+
+        <section class="view" id="tools">
+          <div class="panel">
+            <label for="shellCommand">Safe shell command</label>
+            <input id="shellCommand" placeholder="git status">
+            <button id="shellBtn">Run</button>
+          </div>
+          <div class="panel">
+            <label for="fileSearch">Search files</label>
+            <input id="fileSearch" placeholder="TODO">
+            <button id="fileSearchBtn">Search</button>
+          </div>
+          <pre class="output" id="toolsOut"></pre>
+        </section>
+      </main>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>

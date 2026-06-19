@@ -1,0 +1,37 @@
+{
+  "agent_name": "Madan Personal Agent",
+  "workspace": ".",
+  "memory_dir": "memory",
+  "openai_base_url": "https://api.openai.com/v1",
+  "openai_api_key_env": "OPENAI_API_KEY",
+  "model_env": "AI_MODEL",
+  "timeout_seconds": 60,
+  "allowed_shell_commands": [
+    "git",
+    "python",
+    "py",
+    "pytest",
+    "node",
+    "npm",
+    "npx",
+    "pnpm",
+    "bun",
+    "rg",
+    "dir",
+    "ls",
+    "type",
+    "cat",
+    "docker",
+    "vercel"
+  ],
+  "blocked_shell_patterns": [
+    "rm -rf",
+    "del /s",
+    "format ",
+    "shutdown",
+    "restart-computer",
+    "remove-item -recurse",
+    "remove-item -force",
+    "> /dev/"
+  ]
+}
